@@ -1,48 +1,3 @@
-let lcArray = [...Array(26)]
-let x = 97
-for (let i = 0; i < lcArray.length; i++) {
-  lcArray[i] = String.fromCharCode(x)
-  x++
-}
-var lc = lcArray.toString
-console.log(lc);
-
-let upArray = [...Array(26)]
-let y = 65
-
-for (let i = 0; i < upArray.length; i++) {
-  upArray[i] = String.fromCharCode(y)
-  y++
-}
-
-let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-let special = ["/", "?", ".", ",", "<", ">", "'", ";", ":", "~", "_"]
-let length = password.length
-let charset = "mary"
-// let criteria1 = 
-// let criteria2 = prompt("Do you want to include uppercase? Yes/No")
-// let criteria3 = prompt("Do you want to include numbers? Yes/No")
-// let criteria4 = prompt("Do you want to include special character? Yes/No")
-// let criteria5 = prompt("How long do you want the password? 8-128")
-
-let prompt1 = (tolowercase(prompt("Do you want to include lowercase? yes/no")))
-if (prompt1 === "yes") {
-  charset = (charset + lcArray)
-
-}
-else if (prompt1 === "no") { }
-// while (prompt1 != "yes", "no") {
-// (prompt("Do you want to include lowercase? yes/no").tolowercase)
-// }
-console.log(charset);
-
-
-function generatePassword() {
-
-
-}
-
-
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
@@ -58,8 +13,84 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-String.trim
-String.tolowercase
+let lc = "abcdefghijklmnopqrstuvwxyz"
+let uc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+let numbers = "0123456789"
+let special = "/?.,<>';:~_"
+let charset = ""
+
+
+// let criteria1 = 
+// let criteria2 = prompt("Do you want to include uppercase? Yes/No")
+// let criteria3 = prompt("Do you want to include numbers? Yes/No")
+// let criteria4 = prompt("Do you want to include special character? Yes/No")
+
+function generatePassword() {
+
+  let prompt1 = prompt("Do you want to include lowercase? yes/no").toLowerCase()
+  if (prompt1 === "yes") {
+    charset = charset.concat(lc)
+    console.log(charset)
+  }
+  else if (prompt1 === "no") {
+    console.log("no!");
+  }
+  let prompt2 = prompt("Do you want to include uppercase? yes/no").toLowerCase()
+  if (prompt2 === "yes") {
+    charset = charset.concat(uc)
+    console.log(charset)
+  }
+  else if (prompt2 === "no") {
+    console.log("no!");
+  }
+  let prompt3 = prompt("Do you want to include numbers? yes/no").toLowerCase()
+  if (prompt3 === "yes") {
+    charset = charset.concat(numbers)
+    console.log(charset)
+  }
+  else if (prompt3 === "no") {
+    console.log("no!");
+  }
+  let prompt4 = prompt("Do you want to include special characters? yes/no").toLowerCase()
+  if (prompt4 === "yes") {
+    charset = charset.concat(special)
+    console.log(charset)
+  }
+  else if (prompt4 === "no") {
+    console.log("no!");
+  }
+
+  let prompt5 = prompt("How long do you want the password? 8-128")
+  if (prompt5 >= 8 && prompt5 <= 128) {
+    length == prompt5
+    console.log(prompt5);
+  }
+  else {
+    return passwordText = "Password must be 8-112 characters"
+  }
+
+
+
+}
+
+
+
+
+
+
+// function generatePassword(length) {
+//   var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[]:;?><,./-=";
+//   var password = "";
+//   for (var i = 0; i < length; i++) {
+//     var char = charset.charAt(Math.floor(Math.random() * charset.length));
+//     password += char;
+//   }
+//   return password;
+// }
+
+// // Example usage:
+// var password = generatePassword(12); // Generates a password with 12 characters
+// console.log(password);
 
 // GIVEN I need a new, secure password
 // WHEN I click the button to generate a password
