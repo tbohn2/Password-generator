@@ -13,20 +13,30 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-let lc = "abcdefghijklmnopqrstuvwxyz"
-let uc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+let lcArray = [...Array(26)]
+let x = 97
+for (let i = 0; i < lcArray.length; i++) {
+  lcArray[i] = String.fromCharCode(x)
+  x++
+}
+let lc = lcArray.join("")
+
+let ucArray = [...Array(26)]
+let y = 65
+for (let i = 0; i < ucArray.length; i++) {
+  ucArray[i] = String.fromCharCode(y)
+  y++
+}
+let uc = ucArray.join("")
+console.log(uc);
+
 let numbers = "0123456789"
 let special = "/?.,<>';:~_"
-let charset = ""
-
-
-// let criteria1 = 
-// let criteria2 = prompt("Do you want to include uppercase? Yes/No")
-// let criteria3 = prompt("Do you want to include numbers? Yes/No")
-// let criteria4 = prompt("Do you want to include special character? Yes/No")
+// let password = ""
 
 function generatePassword() {
-
+  let password = ""
+  let charset = ""
   let prompt1 = prompt("Do you want to include lowercase? yes/no").toLowerCase()
   if (prompt1 === "yes") {
     charset = charset.concat(lc)
@@ -62,15 +72,29 @@ function generatePassword() {
 
   let prompt5 = prompt("How long do you want the password? 8-128")
   if (prompt5 >= 8 && prompt5 <= 128) {
-    length == prompt5
-    console.log(prompt5);
+    length = prompt5
+    console.log(length);
   }
   else {
-    return passwordText = "Password must be 8-112 characters"
+    alert("Password must be 8 to 112 characters")
+    return password = "Password must be 8 to 112 characters. Try again."
   }
 
+  if (charset.length === 0) {
+    alert("Must select at least one character set")
+    return password = "Must select at least one character set. Try again."
+  }
+
+  for (var i = 0; i < length; i++) {
+    var code = charset.charAt(Math.floor(Math.random() * charset.length));
+    password += code.toString();
+    console.log(password);
 
 
+
+
+  }
+  return password
 }
 
 
@@ -78,15 +102,6 @@ function generatePassword() {
 
 
 
-// function generatePassword(length) {
-//   var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[]:;?><,./-=";
-//   var password = "";
-//   for (var i = 0; i < length; i++) {
-//     var char = charset.charAt(Math.floor(Math.random() * charset.length));
-//     password += char;
-//   }
-//   return password;
-// }
 
 // // Example usage:
 // var password = generatePassword(12); // Generates a password with 12 characters
